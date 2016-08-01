@@ -39,7 +39,7 @@ class Product
 
     /**
     * @Assert\NotBlank()
-    * @ORM\OneToOne(targetEntity="Category",cascade={"persist"})
+    * @ORM\ManyToOne(targetEntity="Category")
     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
     */
     private $categoria;

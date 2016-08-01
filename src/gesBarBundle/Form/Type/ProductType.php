@@ -6,6 +6,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use gesBarBundle\Form\Type\CategoryType;
 use gesBarBundle\Entity\Category;
@@ -19,7 +20,10 @@ class ProductType extends AbstractType
 		->setMethod('POST')
 		->add('name', TextType::class)
 		->add('precio', MoneyType::class)
-		->add('categoria', CategoryType::class)
+		->add('categoria', EntityType::class, array(
+			'class'=>'gesBarBundle:Category',
+			'choice_label'=> 'name'
+			))
 		// If you use PHP 5.3 or 5.4 you must use
 		// ->add('task', 'Symfony\Component\Form\Extension\Core\Type\TextType')
 		->add('save', SubmitType::class, array('label' => 'Crear mesa'))
