@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prueba{% endblock %}
+
+
+
+{% block contenido %}
+<div class="col-xs-12 col-sm-6 col-md-6 ">
+	<h1><a href="{{ path('ges_mesa_index') }}">Mesas</a></h1>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-6 ">
+	<h1><a href="{{ path('ges_products_index') }}">Productos</a></h1></div>
+<div class="col-xs-12 col-sm-6 col-md-6 ">
+	<h1>Lineas de credito</h1>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-6 ">
+	<h1>Cuentas</h1>
+</div>
+
+{% endblock %}
+

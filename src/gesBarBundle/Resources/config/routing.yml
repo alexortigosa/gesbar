@@ -1,0 +1,11 @@
+ges_mesa_index:
+    path:   /mesa
+    defaults: { _controller: gesBarBundle:Mesa:index }
+
+ges_products_index:
+    path:   /products
+    defaults: { _controller: gesBarBundle:Product:index }
+
+ges_mesa_create:
+    path:   /mesacreate
+    defaults: { _controller: gesBarBundle:Mesa:create }

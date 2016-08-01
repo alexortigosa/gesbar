@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block contenido %}
+<div class="col-xs-4 col-sm-2 col-md-2 ">
+	<ul class="nav nav-stacked">
+	  <li role="presentation" class="active"><a href="javascript:showHome();">Enseñar Productos</a></li>
+	  <li role="presentation"><a href="javascript:showCreate();">Crear Producto</a></li>
+	  <li role="presentation"><a href="javascript:showCats();">Categorías</a></li>
+	  <li role="presentation"><a href="javascript:showCreate();">Crear categorías</a></li>
+	</ul>
+</div>
+<div class="col-xs-8 col-sm-10 col-md-10 ">
+	<div id="showproducts" class="secciones col-xs-8 col-sm-10 col-md-10">
+		{% for product in products %}
+		<div class="col-xs-6 col-sm-6 col-md-6 ">
+			<a href="/product/{{ product.id }}">
+			{{ product.name }}
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+	<div id="createProduct" class="secciones col-xs-8 col-sm-10 col-md-10" style="display:none;">
+		<h1>crear</h1>
+		{{ form_start(form) }}
+		{{ form_widget(form) }}
+		{{ form_end(form) }}
+		<p>{{ formmessage }}</p>
+	</div>
+	<div id="showcats" class="secciones col-xs-8 col-sm-10 col-md-10" style="display:none;">
+		{% for category in categoryes %}
+		<div class="col-xs-6 col-sm-6 col-md-6 ">
+			<a href="/category/{{ category.id }}">
+			{{ category.name }}
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}
+
+
+{% block javascripts %}
+	<script>
+	$(document).ready(function (){
+
+	});
+
+	function showCreate(){
+		$(".secciones").hide();
+		$("#createProduct").show();
+	}
+	function showHome(){
+		$(".secciones").hide();
+		$("#showproducts").show();
+	}
+	function showCats(){
+		$(".secciones").hide();
+		$("#showcats").show();
+	}
+	function createCat(){
+		$(".secciones").hide();
+		$("#showcats").show();
+	}
+	</script>
+{% endblock %}

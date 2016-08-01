@@ -23,6 +23,8 @@
     <!-- Bootstrap core CSS -->
    
     <!-- Custom styles for this template -->
+   
+     <link href="css/signin.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -39,43 +41,13 @@
 
     <div class="container fluid">
       <div id="header" class="row">
-        {% block head %}
-        <div class="col-xs-10 col-sm-10 col-md-10">
-          <h1>La Masia</h1>
-        </div>
-        <div class="col-xs-2 col-sm-2 col-md-2">
-          {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'logout'|trans({}, 'FOSUserBundle') }}
-                </a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'login'|trans({}, 'FOSUserBundle') }}</a>
-            {% endif %}
-             {% for type, messages in app.session.flashBag.all %}
-                {% for message in messages %}
-                    <div class="{{ type }}">
-                        {{ message|trans({}, 'FOSUserBundle') }}
-                    </div>
-                {% endfor %}
-            {% endfor %}
-
-            <div>
-                {% block fos_user_content %}
-                {% endblock fos_user_content %}
-            </div>
-        </div>
-        {% endblock %}
+          {% block cabecera %} 
+          {% endblock %}
         </div>
         <div class="row" id="contenedor">
           <div class="col-xs-12 col-sm-12 col-md-12 ">
-          {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                {% block contenido %}
-           
-            {% endblock %}
-            {% else %}
-                <p>Logueate</p>
-            {% endif %}
+           {% block contenido %} 
+           {% endblock %}
         </div>
         </div>
     </div>
@@ -97,7 +69,6 @@
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-   {% block javascripts %}
-   {% endblock %} 
+    
   </body>
 </html>

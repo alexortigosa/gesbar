@@ -1,0 +1,4 @@
+services:
+#    ges_bar.example:
+#        class: gesBarBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
